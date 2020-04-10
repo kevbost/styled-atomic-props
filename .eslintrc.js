@@ -17,23 +17,26 @@ module.exports = {
     'eol-last': ['error', 'always'],
     indent: ['error', 2],
     'no-tabs': ['error'],
-    'no-unused-vars': [ 'error', {
-      'vars': 'local',
-      'varsIgnorePattern': '^(React|e|i|it|expect)$',
-      'argsIgnorePattern': '^(props|error|reject|response|dispatch|getState)$'
-    }],
+    'no-unused-vars': [
+      'error',
+      {
+        vars: 'local',
+        varsIgnorePattern: '^(React|e|i|it|expect)$',
+        argsIgnorePattern: '^(props|error|reject|response|dispatch|getState)$'
+      }
+    ],
     'no-restricted-imports': [
       'error',
       {
         paths: [
-          {
-            name: 'styled-components',
-            message: 'Please import from styled-components/macro.'
-          },
-          {
-            name: 'reflexbox',
-            message: 'Please import from reflexbox/styled-components.'
-          }
+          // {
+          //   name: 'styled-components',
+          //   message: 'Please import from styled-components/macro.'
+          // },
+          // {
+          //   name: 'reflexbox',
+          //   message: 'Please import from reflexbox/styled-components.'
+          // }
         ],
         patterns: ['!styled-components/macro', '!reflexbox/styled-components']
       }

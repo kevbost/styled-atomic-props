@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import getPropStyles from '../getPropStyles'
 
-export const Div = styled.div`
+export const Strong = styled.strong`
   ${( props ) => {
     return getPropStyles( props )
   }}
 `
-Div.displayName = 'Div'
+Strong.displayName = 'Strong'
 
-export default Div
+export default Strong
