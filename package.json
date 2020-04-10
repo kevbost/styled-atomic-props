@@ -26,6 +26,7 @@
     "eslint-plugin-jest-dom": "^2.0.1",
     "husky": ">=4",
     "lint-staged": ">=10",
+    "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
@@ -58,6 +59,12 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.js": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*{.json,.md}": [
+      "prettier --write"
+    ]
   }
 }

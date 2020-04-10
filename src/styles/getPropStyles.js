@@ -23,21 +23,26 @@ import { propStyles } from './propStyles'
  */
 export const getPropStyles = ( props ) => {
   let returnCss = ''
-  for ( const key in props ) { /* if key is in propstyles AND the prop has not been set to false */
+  for ( const key in props ) {
+    /* if key is in propstyles AND the prop has not been set to false */
     if ( propStyles[key] && props[key] ) {
-
       /* check for hover, focus, active or propStyles prop */
       if ( key.toString().match( /^(hover|focus|active|propStyles|ltSm|ltMd|ltLg|gtSm|gtMd|gtLg)$/ ) ) {
         if ( typeof props[key] !== 'string' ) {
           /* make sure only strings get passed to hover={} etc in components */
-          throw new Error( `${key} must be set to space separated string, recieved key={${JSON.stringify( props[key] )}} of type ${typeof props[key]}` )
+          throw new Error(
+            `${key} must be set to space separated string, recieved key={${JSON.stringify(
+              props[key]
+            )}} of type ${typeof props[key]}`
+          )
         } else {
           returnCss += propStyles[key](
-            props[key].toString()
+            props[key]
+              .toString()
               .replace( /\s+/g, ' ' )
               .split( ' ' )
               .map( ( propStyle ) => {
-                return propStyles[ propStyle ]
+                return propStyles[propStyle]
               })
               .join( '' )
           )
@@ -47,7 +52,8 @@ export const getPropStyles = ( props ) => {
         throw new Error( `${key} must be set to boolean, recieved "${props[key]}" of type ${typeof props[key]}` )
       } else {
         /* concatenate propStyles strings */
-        returnCss += propStyles[ key ].trim()
+        returnCss += propStyles[key]
+          .trim()
           .replace( /[\r\n]/g, '' )
           .replace( /;\s+/g, ';' )
           .replace( /:\s+/g, ':' )

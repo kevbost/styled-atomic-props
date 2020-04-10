@@ -6,7 +6,5 @@ export default {
 }
 
 export const DivComponent = () => {
-  return (
-    <Div border>{'div'}</Div>
-  )
+  return <Div border>{'div'}</Div>
 }
