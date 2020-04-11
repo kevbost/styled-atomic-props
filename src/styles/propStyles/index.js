@@ -1,18 +1,44 @@
-import { colorVars } from './variables'
+import vars, { colorVars, themeVars, fontVars } from '../variables'
+import { marginPropStyles, paddingPropStyles } from './spacing.props'
 
 export const colorPropStyles = {
   transparent: `color: ${colorVars.$transparent};`,
   white: `color: ${colorVars.$white};`,
-  black: `color: ${colorVars.$black};`
-}
-
-export const borderPropStyles = {
-  border: 'border: 1px solid red;'
+  black: `color: ${colorVars.$black};`,
+  gray100: `color: ${colorVars.$gray100};`,
+  gray200: `color: ${colorVars.$gray200};`,
+  gray300: `color: ${colorVars.$gray300};`,
+  gray400: `color: ${colorVars.$gray400};`,
+  gray500: `color: ${colorVars.$gray500};`,
+  gray600: `color: ${colorVars.$gray600};`,
+  gray700: `color: ${colorVars.$gray700};`,
+  gray800: `color: ${colorVars.$gray800};`,
+  gray900: `color: ${colorVars.$gray900};`,
+  primary: `color: ${themeVars.$primary};`,
+  secondary: `color: ${themeVars.$secondary};`,
+  danger: `color: ${themeVars.$danger};`
 }
 
 export const backgroundColorPropStyles = {
-  bgWhite: `color: ${colorVars.$white};`,
-  bgBlack: `color: ${colorVars.$black};`
+  bgTransparent: `background-color: ${colorVars.$transparent};`,
+  bgWhite: `background-color: ${colorVars.$white};`,
+  bgBlack: `background-color: ${colorVars.$black};`,
+  bgGray100: `background-color: ${colorVars.$gray100};`,
+  bgGray200: `background-color: ${colorVars.$gray200};`,
+  bgGray300: `background-color: ${colorVars.$gray300};`,
+  bgGray400: `background-color: ${colorVars.$gray400};`,
+  bgGray500: `background-color: ${colorVars.$gray500};`,
+  bgGray600: `background-color: ${colorVars.$gray600};`,
+  bgGray700: `background-color: ${colorVars.$gray700};`,
+  bgGray800: `background-color: ${colorVars.$gray800};`,
+  bgGray900: `background-color: ${colorVars.$gray900};`,
+  bgPrimary: `background-color: ${themeVars.$primary};`,
+  bgSecondary: `background-color: ${themeVars.$secondary};`,
+  bgDanger: `background-color: ${themeVars.$danger};`
+}
+
+export const borderPropStyles = {
+  border: `border: ${vars.$border};`
 }
 
 export const psuedoSelectorsPropStyles = {
@@ -70,10 +96,10 @@ export const utilityPropStyles = {
   fwNormal: 'font-weight: normal;',
   italic: 'font-style: italic;',
   fsNormal: 'font-style: normal;',
-  small: 'font-size: 0.875rem;',
-  fontXs: 'font-size: 0.75rem;',
-  fontSm: 'font-size: 0.875rem;',
-  fontLg: 'font-size: 1.25rem;',
+  small: `font-size: ${fontVars.$font_size_sm}`,
+  fontXs: `font-size: ${fontVars.$font_size_xs}`,
+  fontSm: `font-size: ${fontVars.$font_size_sm}`,
+  fontLg: `font-size: ${fontVars.$font_size_lg}`,
   vBase: 'vertical-align: baseline;',
   vMid: 'vertical-align: middle;',
   vTop: 'vertical-align: top;',
@@ -126,7 +152,9 @@ export const propStyles = {
   ...backgroundColorPropStyles,
   ...psuedoSelectorsPropStyles,
   ...displayPropStyles,
-  ...utilityPropStyles
+  ...utilityPropStyles,
+  ...marginPropStyles,
+  ...paddingPropStyles
 }
 
 export default propStyles
