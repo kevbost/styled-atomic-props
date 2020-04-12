@@ -28,6 +28,7 @@ export const getPropStyles = ( props ) => {
     if ( propStyles[key] && props[key] ) {
       /* check for hover, focus, active or propStyles prop */
       if ( key.toString().match( /^(hover|focus|active|propStyles|ltSm|ltMd|ltLg|gtSm|gtMd|gtLg)$/ ) ) {
+        // FLAG there's got to be a way to extract these from the propStyles="" propStyle
         if ( typeof props[key] !== 'string' ) {
           /* make sure only strings get passed to hover={} etc in components */
           throw new Error(

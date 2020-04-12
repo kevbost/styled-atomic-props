@@ -3,23 +3,37 @@ export const colorVars = {
   $white: '#ffffff',
   $black: '#000000',
 
-  // from styleguide:
+  $blue: '#0d6efd',
+  $indigo: '#6610f2',
+  $purple: '#6f42c1',
+  $pink: '#d63384',
+  $red: '#dc3545',
+  $orange: '#fd7e14',
+  $yellow: '#ffc107',
+  $green: '#28a745',
+  $teal: '#20c997',
+  $cyan: '#17a2b8',
+
   $gray100: '#F6F7FA',
   $gray200: '#E2E7F0',
   $gray300: '#BFC9D8',
   $gray400: '#A0ACBF',
   $gray500: '#768397',
   $gray600: '#586272',
-  // not from styleguide:
   $gray700: '#495057',
   $gray800: '#343a40',
   $gray900: '#212529'
 }
 
 export const themeVars = {
-  $primary: 'blue',
-  $secondary: 'pink',
-  $danger: 'orange'
+  $primary: `${colorVars.$blue}`,
+  $secondary: `${colorVars.$gray600}`,
+  $success: `${colorVars.$green}`,
+  $info: `${colorVars.$cyan}`,
+  $warning: `${colorVars.$yellow}`,
+  $danger: `${colorVars.$red}`,
+  $light: `${colorVars.$gray100}`,
+  $dark: `${colorVars.$gray800}`
 }
 
 export const fontVars = {

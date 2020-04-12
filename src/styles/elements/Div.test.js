@@ -11,5 +11,5 @@ test( 'Div component', () => {
     </div>
   )
   const style = global.getStyledComponentStyles( Div )
-  expect( style.border ).toEqual( '1px solid red' )
+  expect( style.border ).toEqual( '1px solid #bfc9d8' )
 })

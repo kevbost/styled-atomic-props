@@ -1,0 +1,12 @@
+import React from 'react'
+import { addDecorator } from '@storybook/react'
+import GlobalStyle from '../src/utils/GlobalStyle.styled'
+
+addDecorator((storyFn) => {
+  return (
+    <>
+      <GlobalStyle />
+      {storyFn()}
+    </>
+  )
+})
