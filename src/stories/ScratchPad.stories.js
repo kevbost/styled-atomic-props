@@ -18,14 +18,13 @@ const StyledInput = styled.input.attrs({
   }}
 `
 
-const StyledComponent = ( props ) => {
-  return <Div {...props}>{'div'}</Div>
-}
-
 storiesOf( 'Scratchpad', module ).add( 'PropStyles Tester', () => {
-  const [ inputValue, setInputValue ] = useState(
+  const [ propStylesInput, setPropStylesInput ] = useState(
     'info bold center pa4 mb4 borderRadius border bcInfo ba2 bs1 bgWhite pointer'
   )
+  const [ hoverInput, setHoverInput ] = useState( 'white bgDanger bcDanger' )
+  const [ activeInput, setActiveInput ] = useState( 'bgInfo bcInfo' )
+
   function handleSubmit( e ) {
     e.preventDefault()
   }
@@ -47,26 +46,52 @@ storiesOf( 'Scratchpad', module ).add( 'PropStyles Tester', () => {
         <Div my4 mx4>
           <Div pa4 border>
             <form onSubmit={handleSubmit}>
-              <div>
+              <Div mb3>
                 <h3>{'Add propStyles, separated by spaces'}</h3>
                 <P fontSm mb2>
-                  {'All default propStyles and those provided to the config are available here '}
-                  {'(except for psudeoselectors such as hover, etc)'}
+                  {'The "Div" below the inputs will be updated'}
+                </P>
+                <P fontSm mb2>
+                  {'All default propStyles and those provided to the config are available here'}
                 </P>
                 <Label gray400 bold fontSm mb0>
-                  {'The "Div" below the input will be updated'}
+                  {'propStyles'}
                 </Label>
                 <StyledInput
                   type="text"
-                  value={inputValue}
+                  value={propStylesInput}
                   onChange={( e ) => {
-                    return setInputValue( e.target.value )
+                    return setPropStylesInput( e.target.value )
                   }}
                   placeholder="mb4 danger border bcSuccess"
                 />
-              </div>
+                <Label gray400 bold fontSm mb0>
+                  {'hover'}
+                </Label>
+                <StyledInput
+                  type="text"
+                  value={hoverInput}
+                  onChange={( e ) => {
+                    return setHoverInput( e.target.value )
+                  }}
+                  placeholder="bgDanger"
+                />
+                <Label gray400 bold fontSm mb0>
+                  {'active'}
+                </Label>
+                <StyledInput
+                  type="text"
+                  value={activeInput}
+                  onChange={( e ) => {
+                    return setActiveInput( e.target.value )
+                  }}
+                  placeholder="bgSuccess"
+                />
+              </Div>
             </form>
-            <StyledComponent propStyles={inputValue} />
+            <Div propStyles={propStylesInput} hover={hoverInput} active={activeInput}>
+              {'div'}
+            </Div>
           </Div>
         </Div>
       </Div>
