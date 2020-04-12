@@ -1,9 +1,22 @@
 {
   "name": "styled-atomic-props",
   "version": "0.1.0",
-  "private": true,
+  "description": "Utility for Styled-Components that converts props to styles, atomically.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git"
+  },
   "dependencies": {
     "polished": "^3.5.1"
+  },
+  "peerDependencies": {
+    "styled-components": "^5"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -39,7 +52,9 @@
   "scripts": {
     "test": "react-scripts test",
     "start": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "rm -rf storybook-static && build-storybook -c .storybook",
+    "clean": "rm -rf dist",
+    "compile": "yarn clean && NODE_ENV=production babel -d dist src/styles --extensions .ts,.tsx,.js"
   },
   "eslintConfig": {
     "extends": "react-app"
