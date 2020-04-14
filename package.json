@@ -1,6 +1,6 @@
 {
   "name": "styled-atomic-props",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Utility for Styled-Components that converts props to styles, atomically.",
   "license": "MIT",
   "main": "dist/index.js",
