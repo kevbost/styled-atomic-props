@@ -1,4 +1,4 @@
-import { propStyles } from './propStyles'
+import { userPropStyles } from './addPropStyles'
 
 /**
  * Function to concat matched prop styles.
@@ -20,12 +20,18 @@ import { propStyles } from './propStyles'
  * ( becomes => )
  *    background-color:red;color:red;border:10px solid red;some-style:red;some-other-style:red;
  *
+ * addPropStyles: User configured in root file in user's app
+ *    addPropStyles({
+ *      foo: 'background-color: red;'
+ *    })
+ *
  */
 export const getPropStyles = ( props ) => {
   let returnCss = ''
+  /* loop over prop's keys, prevents parsing huge prop objects */
   for ( const key in props ) {
     /* if key is in propstyles AND the prop has not been set to false */
-    if ( propStyles[key] && props[key] ) {
+    if ( userPropStyles[key] && props[key] ) {
       /* check for hover, focus, active or propStyles prop */
       if ( key.toString().match( /^(hover|focus|active|propStyles|ltSm|ltMd|ltLg|gtSm|gtMd|gtLg)$/ ) ) {
         // FLAG there's got to be a way to extract these from the propStyles="" propStyle
@@ -37,13 +43,13 @@ export const getPropStyles = ( props ) => {
             )}} of type ${typeof props[key]}`
           )
         } else {
-          returnCss += propStyles[key](
+          returnCss += userPropStyles[key](
             props[key]
               .toString()
               .replace( /\s+/g, ' ' )
               .split( ' ' )
               .map( ( propStyle ) => {
-                return propStyles[propStyle]
+                return userPropStyles[propStyle]
               })
               .join( '' )
           )
@@ -53,7 +59,7 @@ export const getPropStyles = ( props ) => {
         throw new Error( `${key} must be set to boolean, recieved "${props[key]}" of type ${typeof props[key]}` )
       } else {
         /* concatenate propStyles strings */
-        returnCss += propStyles[key]
+        returnCss += userPropStyles[key]
           .trim()
           .replace( /[\r\n]/g, '' )
           .replace( /;\s+/g, ';' )

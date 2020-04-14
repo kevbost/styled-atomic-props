@@ -1,4 +1,5 @@
 import { fontVars } from '../variables'
+import { css } from 'styled-components'
 
 export const utilityPropStyles = {
   test: 'background-color: rebeccapurple !important;',
@@ -48,23 +49,21 @@ export const utilityPropStyles = {
   h100vh: 'height: 100vh;',
   h100p: 'height: 100%;',
   hAuto: 'height: auto;',
-  listUnstyled: `
+  listUnstyled: css`
     padding-left: 0;
     list-style: none;
-  `,
-  listInline: `
+  `[0],
+  listInline: css`
     padding-left: 0;
     list-style: none;
-
     li {
       display: inline-block;
-
       &:not(:last-child) {
-        margin-right: .5rem;
+        margin-right: 0.5rem;
       }
     }
-  `,
-  responsive: `
+  `[0],
+  responsive: css`
     max-width: 100%;
     height: auto;
   `

@@ -54,7 +54,8 @@
     "start": "start-storybook -p 9009 -s public",
     "build-storybook": "rm -rf storybook-static && build-storybook -c .storybook",
     "clean": "rm -rf dist",
-    "compile": "yarn clean && NODE_ENV=production babel -d dist src/styles --extensions .ts,.tsx,.js"
+    "compile": "yarn clean && NODE_ENV=production babel -d dist src/styles --extensions .ts,.tsx,.js",
+    "compile:watch": "yarn compile --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
